@@ -24,9 +24,10 @@ All required python packages can be installed with the crfnet pip package.  We r
 
 # CRF-Net Usage
 The network uses camera and radar inputs to detect objects. It can be used with the nuScenes dataset and extended to other radar and camera datasets. The nuScenes dataset can be downloaded [here](https://www.nuscenes.org/download).
-Pretrained weights are provided [here](https://syncandshare.lrz.de/dl/fi9RrjqLXyLZFuhwjk9KiKjc/crf_net.h5 ) (270MB).
+Pretrained weights are without distance detection provided [here](https://syncandshare.lrz.de/dl/fi9RrjqLXyLZFuhwjk9KiKjc/crf_net.h5 ) (270MB).
+Pretrained weights wrt to distance detection provided : https://drive.google.com/drive/folders/1Ds_b5FqDqp6rSuK9PBu0Xxzo6svHL2gk?usp=sharing
 ## Start Training
-1. Create your desired [configuration](crfnet/configs/README.md) for the CRF-Net. Start by making a copy of the [default_config](crfnet/configs/default.cfg)
+1. Create your desired configuration for the CRF-Net. Start by making a copy of the default_config. We have trained with distance detection true and have extracted the velocities are obtained by directly averaging the original radar data inside each bounding box.
 2. Execute `python train_crfnet.py`. This will train a model on a given dataset specified in the configs. The result will be stored in [saved_models](crfnet/saved_models) and the logs in [tb_logs](crfnet/tb_logs).
     * `--config <path to your config>` to use your config. Per default the config file found at [./configs/local.cfg](crfnet/configs/local.cfg) is used.
 
@@ -63,6 +64,15 @@ Example usage:
 ```bash
 python test_crfnet.py --model saved_models/crf_net.h5 --config configs/crf_net.cfg --st 0.5
 ```
+
+## Results
+
+Here the the first value is distance, second is velocity in the front direction, third is radial velocity
+![image](https://user-images.githubusercontent.com/54212099/115305308-1b1a1e80-a134-11eb-8e68-67c78119749c.png)
+
+![image](https://user-images.githubusercontent.com/54212099/115305145-e73ef900-a133-11eb-8c34-f9debdc702a6.png)
+
+
 
 ## Files
 | File | Description |
