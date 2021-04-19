@@ -64,19 +64,6 @@ Example usage:
 python test_crfnet.py --model saved_models/crf_net.h5 --config configs/crf_net.cfg --st 0.5
 ```
 
-## Folder Structure
-
-All main scripts depend on the following subfolders:
-
-1. [configs](crfnet/configs/README.md) folder contains the config files. All the settings for the main scripts are described in this file. A default.cfg (configs/default.cfg) shows an exemplary config file. It is recommended to give each configuration a unique name, as models and tensorboard logs are also named after it.
-
-2. [data_processing](crfnet/data_processing/README.md) folder contains all functions for preprocessing before the neural network. Data fusion functions are placed in this folder. VIsualization of the generated radar augmented image (RAI) is provided by the generator script for the corresponding data set.
-
-3. [model](crfnet/model/README.md) folder contains all the neural network models that can be used. Based on RetinaNet, architectures that fuse camera and radar data at the feature extractor or the FPN are stored here.
-
-4. [utils](crfnet/utils/README.md) utils folder contains helper functions that are needed in many places in this repository. 
-
-
 ## Files
 | File | Description |
 |----|----|
