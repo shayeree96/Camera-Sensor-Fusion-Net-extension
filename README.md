@@ -1,4 +1,4 @@
-# Camera-Sensor-Fusion-Net-extension
+# Camera-Sensor-Fusion-Net-Extension
 
 # CRF-Net for Object Detection (Camera and Radar Fusion Network)
 
@@ -27,9 +27,10 @@ The network uses camera and radar inputs to detect objects. It can be used with 
 Pretrained weights are without distance detection provided [here](https://syncandshare.lrz.de/dl/fi9RrjqLXyLZFuhwjk9KiKjc/crf_net.h5 ) (270MB).
 Pretrained weights wrt to distance detection provided : https://drive.google.com/drive/folders/1Ds_b5FqDqp6rSuK9PBu0Xxzo6svHL2gk?usp=sharing
 ## Start Training
-1. Create your desired configuration for the CRF-Net. Start by making a copy of the default_config. We have trained with distance detection true and have extracted the velocities are obtained by directly averaging the original radar data inside each bounding box.
-2. Execute `python train_crfnet.py`. This will train a model on a given dataset specified in the configs. The result will be stored in [saved_models](crfnet/saved_models) and the logs in [tb_logs](crfnet/tb_logs).
-    * `--config <path to your config>` to use your config. Per default the config file found at [./configs/local.cfg](crfnet/configs/local.cfg) is used.
+1. Create your desired configuration for the CRF-Net. Start by making a copy of the default_config. 
+2. We have trained with distance detection true .
+3. Execute `python train_crfnet.py`. This will train a model on a given dataset specified in the configs. The result will be stored in saved_models and the logs in crfnet/tb_logs.
+    * `--config <path to your config>` to use your config. Per default the config file found at ./configs/local.cfg is used.
 
 Example usage: 
 ```bash
@@ -45,6 +46,7 @@ in the config file. The values and curves are saved onto the hard drive.
     * `--render` to show images with predicted bounding boxes during execution
     * `--eval_from_detection_pickle` to load saved detection files from the hard drive instead of running the model to 
     evaluate it.
+2. We have extracted the velocities are obtained by directly averaging the original radar data inside each bounding box.
     
 Example usage: 
 ```bash
@@ -88,9 +90,9 @@ setup.py | Installs the requirements for this repository and registers this repo
 
 [2] M. Weber, "Autonomous Driving: Radar Sensor Noise Filtering and Multimodal Sensor Fusion for Object Detection with Artificial Neural Networks," Master’s Thesis, Technical University of Munich, 2019.
 
-[3] https://github.com/TUMFTM/CameraRadarFusionNet/tree/master/crfnet
+[3] Reference repo for code : https://github.com/TUMFTM/CameraRadarFusionNet/tree/master/crfnet
 
-If you find our work useful in your research, please consider citing:
+## Citations :
 
     @INPROCEEDINGS{nobis19crfnet,
         author={Nobis, Felix and Geisslinger, Maximilian and Weber, Markus and Betz, Johannes and Lienkamp, Markus},
